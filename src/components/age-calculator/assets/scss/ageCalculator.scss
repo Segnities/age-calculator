@@ -1,0 +1,16 @@
+@import '@/assets/scss/colors';
+
+.age-container {
+   width: 650px;
+   min-height: 440px;
+   background-color: $white;
+   border-radius: 4% 4% 28% 4%;
+   padding: 32px;
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
+}
+
+.age-inputs {
+   display: flex;
+}

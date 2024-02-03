@@ -1,7 +1,12 @@
+import AgeCalculator from "./components/age-calculator/AgeCalculator";
+import './App.scss';
+
 function App() {
   return (
-    <div></div>
-  )
+    <div className="container">
+      <AgeCalculator/>
+    </div>
+  );
 }
 
 export default App;
