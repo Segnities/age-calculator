@@ -1,0 +1,68 @@
+$inputFontSize: 32px;
+
+
+@font-face {
+   font-family: 'Poppins-Bold';
+   src: url('../fonts/Poppins-Bold.ttf') format('ttf')
+}
+
+@font-face {
+   font-family: 'Poppins-BoldItalic';
+   src: url('../fonts/Poppins-BoldItalic.ttf') format('ttf')
+}
+
+@font-face {
+   font-family: 'Poppins-ExtraBold';
+   src: url('../fonts/Poppins-ExtraBold.ttf') format('ttf')
+}
+
+@font-face {
+   font-family: 'Poppins-ExtraBoldItalic';
+   src: url('../fonts/Poppins-ExtraBoldItalic.ttf') format('ttf')
+}
+
+@font-face {
+   font-family: 'Poppins-Italic';
+   src: url('../fonts/Poppins-Italic.ttf') format('ttf')
+}
+
+@font-face {
+   font-family: 'Poppins-Regular';
+   src: url('../fonts/Poppins-Regular.ttf') format('ttf')
+}
+
+.poppins400 {
+   font-family: 'Poppins-Regular', Arial, Helvetica, sans-serif;
+   font-weight: normal;
+   font-style: normal;
+}
+
+.poppins400i {
+   font-family: 'Poppins-Italic', Arial, Helvetica, sans-serif;
+   font-weight: normal;
+   font-style: normal;
+}
+
+.poppins700 {
+   font-family: 'Poppins-Bold', Arial, Helvetica, sans-serif;
+   font-weight: normal;
+   font-style: normal;
+}
+
+.poppins700i {
+   font-family: 'Poppins-BoldItalic', Arial, Helvetica, sans-serif;
+   font-weight: normal;
+   font-style: normal;
+}
+
+.poppins800 {
+   font-family: 'Poppins-ExtraBold', Arial, Helvetica, sans-serif;
+   font-weight: normal;
+   font-style: normal;
+}
+
+.poppins800i {
+   font-family: 'Poppins-ExtraBoldItalic', Arial, Helvetica, sans-serif;
+   font-weight: normal;
+   font-style: normal;
+}
