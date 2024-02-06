@@ -14,6 +14,11 @@ label {
    letter-spacing: 2px;
 }
 
+hr {
+   border-top: 1px solid $lightGrey;
+   width: 100%;
+}
+
 input {
    width: 80%;
    height: 45px;
@@ -45,6 +50,30 @@ input {
    border-radius: 4% 4% 22% 4%;
 }
 
+.divider {
+   display: flex;
+   align-items: center;
+   position: relative;
+   min-height: 20px;
+   margin-top: 3rem;
+}
+
+.star-arrow {
+   width: 54px;
+   height: 54px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50%;
+   background-color: $purple;
+   position: absolute;
+   right: 45%;
+
+   svg {
+      width: 30px;
+      height: 30px;
+   }
+}
 
 @media (min-width: 768px) {
    input {
@@ -52,6 +81,19 @@ input {
       height: 45px;
       padding: 8px;
       font-size: 24px;
+   }
+   .divider {
+      margin-top: 0.2rem;
+   }   
+
+   .star-arrow {
+      width: 64px;
+      height: 64px;
+      right: 0;
+      svg {
+         width: 30px;
+         height: 30px;
+      }
    }
 }
 
