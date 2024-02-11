@@ -68,6 +68,17 @@ input {
    border: 1px solid $lightRed;
 }
 
+.calculated-age__item {
+   font-size: 3em;
+   font-weight: bold;
+   font-family: 'Poppins-Regular', Arial, Helvetica, sans-serif;
+
+   span {
+      letter-spacing: 6px;
+      color: $purple;
+   }
+}
+
 .star-arrow {
    width: 54px;
    height: 54px;
@@ -104,6 +115,14 @@ input {
       height: 45px;
       padding: 8px;
       font-size: 24px;
+   }
+
+   .calculated-age__item {
+      font-size: 5em;
+      
+      span {
+         letter-spacing: 8px;
+      }
    }
 
    .divider {
