@@ -20,6 +20,7 @@ export default defineConfig({
       manifest: {
         name: "Date difference",
         short_name: "DateDiff",
+        start_url: '/',
         theme_color: "#ffffff",
         description: "Calculate difference between specified date and now",
         icons: [
