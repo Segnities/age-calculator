@@ -1,10 +1,10 @@
-import AgeCalculator from "./components/age-calculator/AgeCalculator";
+import DateDiffCalculator from "./components/dateDiffCalculator/DateDiffCalculator";
 import './App.scss';
 
 function App() {
   return (
     <div className="container">
-      <AgeCalculator/>
+      <DateDiffCalculator/>
     </div>
   );
 }

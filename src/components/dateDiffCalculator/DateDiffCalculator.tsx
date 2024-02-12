@@ -5,9 +5,9 @@ import * as Yup from "yup";
 
 import moment from 'moment';
 
-import './assets/scss/ageCalculator.scss';
+import './assets/scss/dateDiffCalculator.scss';
 
-interface AgeProps {
+interface DateDiff {
    day: string;
    month: string;
    year: string;
@@ -43,13 +43,13 @@ const validationSchema = Yup.object().shape({
       .test('valid-year', 'Invalid year', (value) => parseInt(value) >= 1917 && parseInt(value) <= 2024)
 });
 
-export default function AgeCalculator() {
-   const [calculatedAge, setCalculatedAge] = useState<AgeProps | undefined>();
+export default function DateDiffCalculator() {
+   const [dateDiff, setDateDiff] = useState<DateDiff | undefined>();
    const daysRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
    const monthsRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
    const yearsRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
 
-   const handleDiff = (values: AgeProps | undefined) => {
+   const handleDiff = (values: DateDiff | undefined) => {
       if (values?.day && values.month && values.year) {
 
          const startDiffDate = moment(`${yearsRef?.current?.value}-${monthsRef?.current?.value}-${daysRef?.current?.value}`);
@@ -63,9 +63,9 @@ export default function AgeCalculator() {
          const lessZero = years < 0 || months < 0 || days < 0;
 
          if (someNaN || lessZero) {
-            setCalculatedAge(undefined);
+            setDateDiff(undefined);
          } else {
-            setCalculatedAge({
+            setDateDiff({
                day: String(days),
                month: String(months),
                year: String(years),
@@ -75,15 +75,15 @@ export default function AgeCalculator() {
    };
 
    return (
-      <div className="age-container">
+      <div className="dateDiff-container">
          <Formik
             validateOnChange={true}
             validationSchema={validationSchema}
             initialValues={{ month: '', day: '', year: '' }}
             onSubmit={(val) => console.log(val)
             }>
-            {({ errors, touched, values }: FormikProps<AgeProps>) => (
-               <Form onChange={() => handleDiff(values)} className="age-inputs">
+            {({ errors, touched, values }: FormikProps<DateDiff>) => (
+               <Form onChange={() => handleDiff(values)} className="dateDiff-inputs">
                   <Field name='day'>
                      {({ field }: FieldProps) => (
                         <div className='inp-block'>
@@ -125,13 +125,13 @@ export default function AgeCalculator() {
          </div>
          <div className='calculated-age__container'>
             <div className='calculated-age__item'>
-               <span>{calculatedAge?.day || '--'}</span> days
+               <span>{dateDiff?.day || '--'}</span> days
             </div>
             <div className='calculated-age__item'>
-               <span>{calculatedAge?.month || '--'}</span> months
+               <span>{dateDiff?.month || '--'}</span> months
             </div>
             <div className='calculated-age__item'>
-               <span>{calculatedAge?.year || '--'}</span>  years
+               <span>{dateDiff?.year || '--'}</span>  years
             </div>
          </div>
       </div>

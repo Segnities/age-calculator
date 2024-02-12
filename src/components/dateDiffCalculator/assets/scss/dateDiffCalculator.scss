@@ -33,14 +33,14 @@ input {
    color: $offBlack;
 }
 
-.age-inputs {
+.dateDiff-inputs {
    width: 100%;
    display: flex;
    align-items: center;
    justify-content: space-between;
 }
 
-.age-container {
+.dateDiff-container {
    width: 90%;
    min-width: 320px;
    min-height: 360px;
@@ -150,14 +150,14 @@ input {
       border-radius: 7px;
    }
 
-   .age-container {
+   .dateDiff-container {
       width: 650px;
       min-height: 440px;
       border-radius: 4% 4% 28% 4%;
       gap: 25px;
    }
 
-   .age-inputs {
+   .dateDiff-inputs {
       width: 75%;
    }
 }
