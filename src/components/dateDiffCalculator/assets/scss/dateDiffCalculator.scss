@@ -57,6 +57,7 @@ input {
    position: relative;
    min-height: 20px;
    margin-top: 3rem;
+   margin-bottom: 2rem;
 }
 
 .error-color {
@@ -74,7 +75,7 @@ input {
    font-family: 'Poppins-Regular', Arial, Helvetica, sans-serif;
 
    span {
-      letter-spacing: 6px;
+      letter-spacing: 3px;
       color: $purple;
    }
 }
@@ -110,6 +111,9 @@ input {
 }
 
 @media (min-width: 768px) {
+   label {
+      font-weight: bold;
+   }
    input {
       width: 80%;
       height: 45px;
@@ -127,6 +131,7 @@ input {
 
    .divider {
       margin-top: 0.2rem;
+      margin-bottom: 0;
    }
 
    .star-arrow {
