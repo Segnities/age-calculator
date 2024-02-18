@@ -1,8 +1,8 @@
 import DateDiffCalculator from "./components/dateDiffCalculator/DateDiffCalculator";
-import { getToken } from "firebase/messaging";
-import { messaging } from "./firebase";
 
 import './App.scss';
+import { getToken } from "firebase/messaging";
+import { messaging } from "./firebase";
 
 function App() {
   getToken(messaging, { vapidKey: import.meta.env.VITE_VAPID_KEY })
