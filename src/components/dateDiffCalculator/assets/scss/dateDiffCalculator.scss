@@ -73,6 +73,7 @@ input {
    font-size: 3em;
    font-weight: bold;
    font-family: 'Poppins-Regular', Arial, Helvetica, sans-serif;
+   transition: opacity 0.5s ease-in-out;
 
    span {
       letter-spacing: 3px;
