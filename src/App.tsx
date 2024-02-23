@@ -8,12 +8,12 @@ function App() {
   getToken(messaging, { vapidKey: import.meta.env.VITE_VAPID_KEY })
     .then((currentToken) => {
       if (currentToken) {
-        console.log(currentToken);
+        console.log(currentToken.slice(0, 5) + '...');
       } else {
         console.log('No registration token available. Request permission to generate one.');
       }
     }).catch((err) => {
-        console.log('An error occurred while retrieving token. ', err);
+      console.log('An error occurred while retrieving token. ', err);
     });
   return (
     <div className="container">

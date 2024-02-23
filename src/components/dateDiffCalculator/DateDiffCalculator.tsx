@@ -24,7 +24,9 @@ const validationSchema = Yup.object().shape({
       .test('valid-day', 'Invalid day', (value, context) => {
          const { year, month } = context.parent;
          const maxDay = new Date(year, month, 0).getDate();
-
+         if (value.length < 2) {
+            return false;
+         }
          return parseInt(value) < maxDay;
       }),
    month: Yup
@@ -139,13 +141,32 @@ export default function DateDiffCalculator() {
                   </div>
                   <div className='calculated-age__container'>
                      <div className='calculated-age__item'>
-                        <animated.span>{animatedDay.number.interpolate(value => value === 0 ? '--' : Math.floor(value))}</animated.span> days
+                        <animated.span>
+
+                           {
+                              !Object.values(errors).length ?
+                                 animatedDay.number.interpolate(value => value === 0 ? '--' : Math.floor(value)) :
+                                 '--'
+                           }
+                        </animated.span> days
                      </div>
                      <div className='calculated-age__item'>
-                        <animated.span>{animatedMonth.number.interpolate(value => value === 0 ? '--' : Math.floor(value))}</animated.span> months
+                        <animated.span>
+                           {
+                              !Object.values(errors).length ?
+                                 animatedMonth.number.interpolate(value => value === 0 ? '--' : Math.floor(value)) :
+                                 '--'
+                           }
+                        </animated.span> months
                      </div>
                      <div className='calculated-age__item'>
-                        <animated.span>{!Object.values(errors) ? animatedYear.number.interpolate(value => value === 0 ? '--' : Math.floor(value)) : '--'}</animated.span> years
+                        <animated.span>
+                           {
+                              !Object.values(errors).length ?
+                                 animatedYear.number.interpolate(value => value === 0 ? '--' : Math.floor(value)) :
+                                 '--'
+                           }
+                        </animated.span> years
                      </div>
                   </div>
                </React.Fragment>
