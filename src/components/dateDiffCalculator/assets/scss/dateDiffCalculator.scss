@@ -29,8 +29,12 @@ input {
    font-weight: bold;
    border-radius: 7px;
    outline: none;
-   border: 1px solid $smokeyGrey;
+   border: 1px solid $lightGrey;
    color: $offBlack;
+
+   &:focus {
+      border: 1px solid $purple;
+   }
 }
 
 .dateDiff-inputs {
@@ -71,14 +75,24 @@ input {
 
 .calculated-age__item {
    font-size: 3em;
+   display: flex;
+   justify-content: start;
+   align-items: center;
    font-weight: bold;
    font-family: 'Poppins-Regular', Arial, Helvetica, sans-serif;
    transition: opacity 0.5s ease-in-out;
+}
 
-   span {
-      letter-spacing: 3px;
-      color: $purple;
-   }
+span.nums-value {
+   font-size: 4rem;
+   letter-spacing: 1px;
+   color: $purple;
+}
+
+span.nums-title {
+   font-size: 4rem;
+   font-weight: bold;
+   margin-left: 4px;
 }
 
 .star-arrow {
@@ -131,10 +145,6 @@ input {
 
    .calculated-age__item {
       font-size: 5em;
-
-      span {
-         letter-spacing: 8px;
-      }
    }
 
    .divider {
@@ -151,6 +161,18 @@ input {
          width: 30px;
          height: 30px;
       }
+   }
+
+   span.nums-value {
+      font-size: 5rem;
+      letter-spacing: 1px;
+      color: $purple;
+   }
+   
+   span.nums-title {
+      font-size: 5rem;
+      font-weight: bold;
+      margin-left: 4px;
    }
 }
 

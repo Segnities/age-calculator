@@ -2,49 +2,12 @@ import React, { MutableRefObject, useRef, useState } from 'react';
 import { useSpring, animated } from "@react-spring/web";
 
 import { Field, FieldProps, Form, Formik, FormikProps } from 'formik';
-import * as Yup from "yup";
-
 import moment from 'moment';
 
+import type { DateDiff } from './dateDiff';
+import { dateDiffValSchema } from "./dateDiffValSchema"
+
 import './assets/scss/dateDiffCalculator.scss';
-
-interface DateDiff {
-   day: string;
-   month: string;
-   year: string;
-}
-
-const validationSchema = Yup.object().shape({
-   day: Yup
-      .string()
-      .required()
-      .matches(/^[0-9]+$/, "Must be only digits")
-      .min(2, 'Must be exactly 2 digits')
-      .max(2, 'Must be exactly 2 digits')
-      .test('valid-day', 'Invalid day', (value, context) => {
-         const { year, month } = context.parent;
-         const maxDay = new Date(year, month, 0).getDate();
-         if (value.length < 2) {
-            return false;
-         }
-         return parseInt(value) < maxDay;
-      }),
-   month: Yup
-      .string()
-      .required()
-      .matches(/^[0-9]+$/, "Must be only digits")
-      .min(2, 'Must be exactly 2 digits')
-      .max(2, 'Must be exactly 2 digits')
-      .test('valid-month', 'Invalid month', (value) => parseInt(value) >= 1 && parseInt(value) <= 12)
-   ,
-   year: Yup
-      .string()
-      .required()
-      .matches(/^[0-9]+$/, "Must be only digits")
-      .min(4, 'Must be exactly 4 digits')
-      .max(4, 'Must be exactly 4 digits')
-      .test('valid-year', 'Invalid year', (value) => parseInt(value) >= 1917 && parseInt(value) <= new Date().getFullYear())
-});
 
 export default function DateDiffCalculator() {
    const [dateDiff, setDateDiff] = useState<DateDiff | undefined>();
@@ -96,7 +59,7 @@ export default function DateDiffCalculator() {
       <div className="dateDiff-container">
          <Formik
             validateOnChange={true}
-            validationSchema={validationSchema}
+            validationSchema={dateDiffValSchema}
             initialValues={{ month: '', day: '', year: '' }}
             onSubmit={(val) => console.log(val)
             }>
@@ -141,33 +104,36 @@ export default function DateDiffCalculator() {
                      </div>
                   </div>
                   <div className='calculated-age__container'>
+                  <div className='calculated-age__item'>
+                        <animated.span className='nums-value'>
+                           {
+                              !Object.values(errors).length ?
+                                 animatedYear.number.interpolate(value => value === 0 ? '--' : Math.floor(value)) :
+                                 '--'
+                           }
+                        </animated.span> 
+                        <span className='nums-title'>years</span>
+                     </div>
                      <div className='calculated-age__item'>
-                        <animated.span>
+                        <animated.span className='nums-value'>
+                           {
+                              !Object.values(errors).length ?
+                                 animatedMonth.number.interpolate(value => value === 0 ? '--' : Math.floor(value)) :
+                                 '--'
+                           }
+                        </animated.span> 
+                        <span className='nums-title'>months</span>  
+                     </div>
+                     <div className='calculated-age__item'>
+                        <animated.span className='nums-value'>
 
                            {
                               !Object.values(errors).length ?
                                  animatedDay.number.interpolate(value => value === 0 ? '--' : Math.floor(value)) :
                                  '--'
                            }
-                        </animated.span> days
-                     </div>
-                     <div className='calculated-age__item'>
-                        <animated.span>
-                           {
-                              !Object.values(errors).length ?
-                                 animatedMonth.number.interpolate(value => value === 0 ? '--' : Math.floor(value)) :
-                                 '--'
-                           }
-                        </animated.span> months
-                     </div>
-                     <div className='calculated-age__item'>
-                        <animated.span>
-                           {
-                              !Object.values(errors).length ?
-                                 animatedYear.number.interpolate(value => value === 0 ? '--' : Math.floor(value)) :
-                                 '--'
-                           }
-                        </animated.span> years
+                        </animated.span> 
+                        <span className='nums-title'>days</span>
                      </div>
                   </div>
                </React.Fragment>
