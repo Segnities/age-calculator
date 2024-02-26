@@ -70,7 +70,8 @@ export default function DateDiffCalculator() {
 
    const handleDiff = (values: DateDiff | undefined) => {
       if (values?.day && values.month && values.year) {
-         const startDiffDate = moment(`${yearsRef?.current?.value}-${monthsRef?.current?.value}-${daysRef?.current?.value}`, 'YYYY-MM-DD');
+         const yearsDif = parseInt(yearsRef?.current?.value || values.year) - 1;
+         const startDiffDate = moment(`${yearsDif}-${monthsRef?.current?.value}-${daysRef?.current?.value}`, 'YYYY-MM-DD');
          const nowDiffDate = moment();
          const years = nowDiffDate.diff(startDiffDate, 'years');
          const months = nowDiffDate.diff(startDiffDate, 'months') % 12;
