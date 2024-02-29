@@ -46,8 +46,9 @@ input {
 
 .dateDiff-container {
    width: 90%;
-   min-width: 320px;
-   min-height: 360px;
+   min-width: px;
+   min-height: 320px; 
+   margin-top: 15px;
    background-color: $white;
    padding: 32px;
    display: flex;
@@ -61,7 +62,7 @@ input {
    position: relative;
    min-height: 20px;
    margin-top: 2.5rem;
-   margin-bottom: 2.5rem;
+   margin-bottom: 1.5rem;
 }
 
 .error-color {
@@ -164,13 +165,13 @@ span.nums-title {
    }
 
    span.nums-value {
-      font-size: 5rem;
+      font-size: 4rem;
       letter-spacing: 1px;
       color: $purple;
    }
    
    span.nums-title {
-      font-size: 5rem;
+      font-size: 4rem;
       font-weight: bold;
       margin-left: 4px;
    }
@@ -192,6 +193,7 @@ span.nums-title {
 
    .dateDiff-container {
       width: 650px;
+      min-width: 450px; 
       min-height: 440px;
       border-radius: 4% 4% 28% 4%;
       gap: 25px;
